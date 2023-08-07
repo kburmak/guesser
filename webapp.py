@@ -11,7 +11,7 @@ from nltk.stem import WordNetLemmatizer
 
 lemma = WordNetLemmatizer()
 stp_words = stopwords.words('english')
-vector = joblib.load('model\\vectorizer.pkl')
+vector = joblib.load('vectorizer.pkl')
 
 def clean(text):
   text = re.sub(r'[^\w\s]','', text, re.UNICODE)
@@ -23,7 +23,7 @@ def clean(text):
   return X
 
 def prediction(text):
-    loaded_model = joblib.load('model\\model.joblib')
+    loaded_model = joblib.load('model.joblib')
     X = clean(text)
     Y = loaded_model.predict(X)
     return Y
